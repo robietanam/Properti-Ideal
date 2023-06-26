@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'src/appview.dart';
 
 void main() {
-  runApp(const MainApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  initializeDateFormatting('id_ID');
+
+  runApp(const AppView());
 }
 
 class MainApp extends StatelessWidget {

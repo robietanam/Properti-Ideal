@@ -7,6 +7,11 @@ environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
+  intl:
+  sizer:
+  responsive_sizer:
+  flutter_svg: 
+  persistent_bottom_nav_bar: ^5.0.2
   flutter:
     sdk: flutter
 
@@ -17,3 +22,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/svg/
