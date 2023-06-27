@@ -15,7 +15,13 @@ class HomepageView extends StatefulWidget {
 class _HomepageViewState extends State<HomepageView> {
   final searchController = TextEditingController();
 
-  final dataNamaRumah = ['Rumah abadi', 'Rumah dekat sekolah', 'Rumah idaman'];
+  final dataNamaRumah = [
+    'Rumah abadi',
+    'Rumah dekat sekolah',
+    'Rumah idaman',
+    'Rumah antik',
+    'Rumah mewah'
+  ];
   int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -311,7 +317,7 @@ class CardRumah extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15.0.sp),
+      padding: EdgeInsets.symmetric(horizontal: 10.0.sp),
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(10.sp)), //or 15.0
         child: Stack(
