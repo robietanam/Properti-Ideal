@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:properti_ideal/src/view/homepage/homepage_view.dart';
+import 'package:properti_ideal/src/view/riwayat/riwayat_view.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../akun/akun_view.dart';
 import '../search/search_view.dart';
 
 class NavbarWidget extends StatelessWidget {
   const NavbarWidget({super.key});
 
   List<Widget> _buildScreens() {
-    return [HomepageView(), SearchView(), SearchView(), SearchView()];
+    return [HomepageView(), SearchView(), RiwayatView(), AkunView()];
   }
 
   List<PersistentBottomNavBarItem> _navBarsItems() {

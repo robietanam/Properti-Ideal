@@ -108,3 +108,25 @@ class TextDeskripsi2 extends StatelessWidget {
     );
   }
 }
+
+class TextDeskripsi3 extends StatelessWidget {
+  const TextDeskripsi3({super.key, required this.text, this.color});
+
+  final String text;
+  final Color? color;
+
+  Color get _color => color != null ? color! : Colors.white;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      maxLines: 2,
+      style: TextStyle(
+          fontSize: 13.sp,
+          fontWeight: FontWeight.w600,
+          color: _color,
+          overflow: TextOverflow.ellipsis),
+    );
+  }
+}

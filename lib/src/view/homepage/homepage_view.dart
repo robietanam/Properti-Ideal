@@ -4,6 +4,9 @@ import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../props/theme/textfont.dart';
+import '../../props/widget/custom_card_widget.dart';
+import '../../props/widget/custom_search.dart';
+import '../../props/widget/rekomendasi_widget.dart';
 
 class HomepageView extends StatefulWidget {
   const HomepageView({super.key});
@@ -22,7 +25,9 @@ class _HomepageViewState extends State<HomepageView> {
     'Rumah antik',
     'Rumah mewah'
   ];
+
   int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     void _onItemTapped(int index) {
@@ -52,46 +57,8 @@ class _HomepageViewState extends State<HomepageView> {
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 2.w),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20.sp),
-                          ),
-                          width: 67.5.w,
-                          child: TextField(
-                            controller: searchController,
-                            cursorColor: Theme.of(context).primaryColor,
-                            textAlignVertical: TextAlignVertical.center,
-                            decoration: InputDecoration(
-                                hintText: "Cari Rumah Impianmu...",
-                                hintStyle: TextStyle(fontSize: 15.sp),
-                                suffixIcon: Icon(
-                                  Icons.search,
-                                  color: Theme.of(context).primaryColor,
-                                ),
-                                suffixIconConstraints: const BoxConstraints(
-                                  minWidth: 40,
-                                  minHeight: 40,
-                                ),
-                                isDense: true,
-                                contentPadding:
-                                    EdgeInsets.symmetric(horizontal: 4.w),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    width: 1,
-                                    color: Theme.of(context).primaryColor,
-                                  ),
-                                  borderRadius: BorderRadius.circular(20.sp),
-                                ),
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    width: 1,
-                                    color: Theme.of(context).primaryColor,
-                                  ),
-                                  borderRadius: BorderRadius.circular(20.sp),
-                                )),
-                          ),
-                        ),
+                        child: CustomSearchField(
+                            searchController: searchController),
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 5.sp),
@@ -252,30 +219,7 @@ class _HomepageViewState extends State<HomepageView> {
                     ],
                   ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextJudul2(
-                      text: 'Rekomendasi untukmu',
-                    ),
-                    Container(
-                      color: Colors.black,
-                      height: 5.sp,
-                      width: 30.w,
-                    ),
-                  ],
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 20.sp),
-                  height: 40.w,
-                  child: ListView.builder(
-                      physics: ClampingScrollPhysics(),
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemCount: dataNamaRumah.length,
-                      itemBuilder: (BuildContext context, int index) =>
-                          CardRumah(title: dataNamaRumah[index])),
-                ),
+                RekomendasiWidget(dataNamaRumah: dataNamaRumah),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -298,65 +242,11 @@ class _HomepageViewState extends State<HomepageView> {
                       scrollDirection: Axis.horizontal,
                       itemCount: dataNamaRumah.length,
                       itemBuilder: (BuildContext context, int index) =>
-                          CardRumah(title: dataNamaRumah[index])),
+                          CardRumah1(title: dataNamaRumah[index])),
                 ),
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class CardRumah extends StatelessWidget {
-  const CardRumah({super.key, required this.title});
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10.0.sp),
-      child: ClipRRect(
-        borderRadius: BorderRadius.all(Radius.circular(10.sp)), //or 15.0
-        child: Stack(
-          children: [
-            Image.asset(
-              'assets/images/noimage2.png',
-              fit: BoxFit.cover,
-              width: 40.w,
-              height: 25.w,
-            ),
-            Container(
-              width: 40.w,
-              height: 25.w,
-              alignment: Alignment.bottomLeft,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10.sp)),
-                gradient: const LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  stops: [
-                    0.1,
-                    0.4,
-                    0.6,
-                    0.9,
-                  ],
-                  colors: [
-                    Colors.transparent,
-                    Colors.transparent,
-                    Colors.transparent,
-                    Color.fromARGB(139, 0, 0, 0),
-                  ],
-                ),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(12.sp),
-                child: TextDeskripsi2(text: title),
-              ),
-            ),
-          ],
         ),
       ),
     );

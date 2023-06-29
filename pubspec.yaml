@@ -8,7 +8,6 @@ environment:
 
 dependencies:
   intl:
-  sizer:
   responsive_sizer:
   flutter_svg: 
   persistent_bottom_nav_bar: ^5.0.2

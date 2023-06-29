@@ -31,7 +31,7 @@ class AppTheme {
     return ThemeData(
       brightness: brightness,
       iconTheme: IconThemeData(color: textColor),
-      scaffoldBackgroundColor: Color(0xFFF2F2F2),
+      scaffoldBackgroundColor: Color(0xFFF9F9F9),
       primaryColor: const Color(0xFF004FA7),
       fontFamily: 'Poppins',
       disabledColor: Colors.grey,
