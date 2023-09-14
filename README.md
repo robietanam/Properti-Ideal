@@ -1,3 +1,3 @@
 # properti_ideal
 
-A new Flutter project.
+Projek tidak dilanjutkan karena berganti platform
